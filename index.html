@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+
+  <title>Frontend Mentor | Interactive card details form</title>
+
+  <script defer src="./main.js"></script>
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+
+</head>
+
+<body>
+
+  <main class="bg--img">
+    <div class="container">
+      <div class="card--wrapper">
+        <div class="card card--front">
+          <img class="card__img--bg" src="./images/bg-card-front.png" alt="">
+          <img class="card__logo" src="./images/card-logo.svg" alt="">
+          <div class="card__content">
+            <p class="card__number fs-heading fs-heading-l">0000 0000 0000 0000</p>
+            <p class="card__holder fs-heading fs-heading-s">Jane Appleseed</p>
+            <p class="card__expiration-date fs-heading fs-heading-s"><span class="mm">00</span>/<span
+                class="yy">00</span></p>
+          </div>
+        </div>
+        <div class="card card--back">
+          <img class="card__img--bg" src="./images/bg-card-back.png" alt="">
+          <p class="security-code fs-heading fs-heading-s">000</p>
+        </div>
+      </div>
+      <div class="form--wrapper">
+        <form id="form" action="#complete-form">
+          <div class="cardholder--wrapper">
+            <label for="cardholder" class="fs-heading fs-heading-m" aria-label="Cardholder Name">Cardholder Name</label>
+            <input type="text" id="cardholder" name="cardholder" placeholder="e.g. Jane Appleseed">
+            <p class="fs-heading fs-heading-m fs-heading--error">Can't be Blank</p>
+          </div>
+          <div class="card-number--wrapper">
+            <label for="card-number" class="fs-heading fs-heading-m">Card Number</label>
+            <input type="tel" id="card-number" placeholder="e.g. 1234 5678 9123 0000" maxlength="16">
+            <p class="fs-heading fs-heading-m fs-heading--error">Wrong format, numbers only</p>
+          </div>
+          <div class="form__grid">
+            <div class="exp--wrapper">
+              <label for="exp" class="fs-heading fs-heading-exp fs-heading-m">Exp. Date (MM/YY)</label>
+              <input type="tel" id="exp-mm" name="exp" placeholder="MM" maxlength="2" required>
+              <input type="tel" id="exp-yy" name="exp" placeholder="YY" maxlength="2" required>
+              <p class="fs-heading fs-heading-m fs-heading--error">Can't be Blank</p>
+            </div>
+            <div class="cvc--wrapper">
+              <label for="cvc" class="fs-heading fs-heading-cvc fs-heading-m">CVC</label>
+              <input type="tel" id="cvc" name="cvc" placeholder="e.g. 123" maxlength="3" required>
+              <p class="fs-heading fs-heading-m fs-heading--error">Can't be Blank</p>
+            </div>
+          </div>
+          <button type="button" class="btn btn--submit">Confirm</button>
+          <!-- Completed state start -->
+
+        </form>
+      </div>
+      <div class="complete-form">
+        <img src="./images/icon-complete.svg" alt="">
+        <h2 class="fs-heading-ty">Thank you!</h2>
+        <p>We've added your card details</p>
+        <button class="btn completed-btn">Continue</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Kellen Ruyle</a>.
+  </footer>
+</body>
+
+</html>

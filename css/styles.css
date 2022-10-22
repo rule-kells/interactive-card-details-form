@@ -1,0 +1,457 @@
+:root {
+
+    /* ## Colors */
+    /* ### Primary */
+    --clr-palette-primary-500: hsl(249, 99%, 64%);
+    --clr-palette-primary-800: hsl(278, 93%, 30%);
+    --clr-palette-primary-linear-gradient: linear-gradient(163.95deg, var(--clr-palette-neutral-500) 4.74%, var(--clr-palette-primary-800) 88.83%);
+    --clr-palette-primary-400: hsl(0, 100%, 66%);
+
+    /* ### Neutral */
+
+    --white: hsl(0, 0%, 100%);
+    --clr-palette-neutral-300: hsl(270, 3%, 87%);
+    --clr-palette-neutral-500: hsl(279, 6%, 55%);
+    --clr-palette-neutral-900: hsl(278, 68%, 11%);
+
+    /* ## Typography */
+
+    /* ### Body Copy */
+
+    --fs-body: 1.125rem;
+    --fs-heading-ty: 1.75rem;
+    --fs-heading-l: 1.125rem;
+    --fs-heading-m: 0.75rem;
+    --fs-heading-s: 0.5625rem;
+    /* ### Font */
+
+    --ff-primary: 'Space Grotesk',
+        sans-serif;
+    --fw-500: 500;
+
+    --br: 0.5rem;
+}
+
+@media (min-width: 55em) {
+    :root {
+        --fs-heading-l: 1.75rem;
+        --fs-heading-s: 0.875rem;
+    }
+}
+
+html {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+    color: var(--clr-palette-neutral-900);
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-500);
+    line-height: 1.63em;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* any ul that has a class on it has these properties */
+ul[class] {
+    list-style: none;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: inherit;
+}
+
+input,
+label {
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    width: 100%;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.flow->*+* {
+    margin-top: 1rem;
+
+}
+
+/* font  */
+.fs-heading {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    line-height: 1.5;
+}
+
+.fs-heading-l {
+    font-size: var(--fs-heading-l);
+    letter-spacing: 2.2px;
+}
+
+.fs-heading-m {
+    font-size: var(--fs-heading-m);
+}
+
+.fs-heading-s {
+    font-size: var(--fs-heading-s);
+}
+
+.bg--img {
+    position: relative;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 65.625rem;
+    padding: 2rem 1rem 2.6875rem;
+    gap: 1.5rem;
+    margin: 0 auto;
+}
+
+.bg--img::before {
+    content: '';
+    inset: 0;
+    position: absolute;
+    background-image: url('../images/bg-main-mobile.png');
+    background-repeat: no-repeat;
+    background-size: 100% 15rem;
+    z-index: -1;
+}
+
+.card--wrapper {
+    width: clamp(20ch, 95%, 21.4375rem);
+    display: grid;
+    grid-template-columns: minmax(min-content, 21.4375rem);
+    grid-template-rows: 5.875rem 3.9375rem 5.875rem;
+    margin: 0 auto;
+
+
+}
+
+.card {
+    color: var(--white);
+    position: relative;
+    max-width: 17.875rem;
+    width: 100%;
+    height: 9.8125rem;
+    object-fit: cover;
+    box-shadow: 0px 2.4375rem 3.75rem 0px hsla(0, 0%, 0%, 0.14);
+    border-radius: var(--br);
+
+}
+
+.card__img--bg {
+    max-width: 100%;
+}
+
+.card--front {
+    z-index: 1;
+    grid-column: 1;
+    grid-row: 2/ 3;
+
+
+}
+
+.card--back {
+    justify-self: end;
+    grid-column: 1;
+    grid-row: 1/ span 2;
+}
+
+.card__logo {
+    position: absolute;
+    max-width: 3.375rem;
+    inset: 1.0625rem 7rem 6.75rem 1.1875rem;
+    z-index: 1;
+}
+
+.card__content {
+    display: grid;
+    /* max-width: 383px; */
+    /* width: 100%; */
+    grid-template-columns: minmax(min-content, 6.25rem) minmax(min-content, 7.0625rem) minmax(min-content, 2rem);
+    grid-template-rows: 1.4375rem 0.75rem;
+    grid-template-areas: 'number number number' 'name . exp';
+    position: absolute;
+    gap: 1.0625rem 0;
+    inset: 5.25rem 1.25rem 1.25rem;
+    z-index: 1;
+}
+
+.card__number {
+    grid-area: number;
+}
+
+.card__holder {
+    grid-area: name;
+}
+
+.card__expiration-date {
+    grid-area: exp;
+}
+
+.security-code {
+    inset: 4.625rem 2.3125rem 4.5rem 14.375rem;
+    position: absolute;
+}
+
+/* form  */
+
+.form--wrapper {
+    max-width: 23.8125rem;
+    z-index: 3;
+    margin: 3rem auto 0;
+}
+
+form .fs-heading:not(.fs-heading--error) {
+    display: block;
+    margin-bottom: 0.5625rem;
+}
+
+form>*+* {
+    margin-top: 1.25rem;
+}
+
+.form--wrapper input {
+    border-radius: var(--br);
+    border: 1px solid var(--clr-palette-neutral-300);
+    padding: 0.6875rem 1rem;
+}
+
+.form--wrapper input::placeholder {
+    color: var(--clr-palette-neutral-900);
+    opacity: 25%;
+}
+
+ .form--wrapper input:focus {
+     outline: none !important;
+     border: 1px solid var(--clr-palette-primary-800);
+ }
+
+ /* tomorrow will need to add this class to each input */
+ .error--active.cardholder--wrapper input[id="cardholder"] {
+     border: 1px solid var(--clr-palette-primary-400);
+ }
+
+ .error--active.card-number--wrapper input[id="card-number"] {
+     border: 1px solid var(--clr-palette-primary-400);
+ }
+
+ .error--active.exp--wrapper input[id="exp-mm"] {
+     border: 1px solid var(--clr-palette-primary-400);
+ }
+
+ .error--active.exp--wrapper input[id="exp-yy"] {
+     border: 1px solid var(--clr-palette-primary-400);
+ }
+
+ .error--active.cvc--wrapper input[id="cvc"] {
+     border: 1px solid var(--clr-palette-primary-400);
+ }
+
+ .fs-heading--error {
+     display: none;
+     color: var(--clr-palette-primary-400);
+     margin-top: 0.5rem;
+     letter-spacing: 0;
+     text-transform: capitalize;
+ }
+
+ .error--active .fs-heading--error {
+     display: block;
+ }
+
+.form__grid {
+    display: grid;
+    grid-template-columns: minmax(min-content, 10.625rem) minmax(min-content, 11.9375rem);
+    grid-template-areas: 'exp cvc';
+    justify-content: space-between;
+}
+
+input {
+    caret-color: var(--clr-palette-neutral-900);
+}
+
+.exp--wrapper {
+    grid-area: exp;
+}
+
+.cvc--wrapper {
+    grid-area: cvc;
+}
+
+.form--wrapper input[name="exp"] {
+    max-width: 4.5rem;
+}
+
+
+.btn {
+    background-color: var(--clr-palette-neutral-900);
+    color: var(--white);
+    font-family: var(--ff-primary);
+    font-weight: var(--fw-500);
+    font-size: inherit;
+    border: none;
+    border-radius: var(--br);
+    width: 100%;
+    margin-top: 1.75rem;
+    padding: 0.9375rem 0;
+    line-height: 1.375rem;
+}
+
+.attribution {
+    color: var(--clr-palette-neutral-900);
+    font-weight: var(--fw-500);
+    inset: auto 0 0;
+    font-size: 0.6875rem;
+    position: absolute;
+    text-align: center;
+}
+
+.attribution a {
+    color: var(--clr-palette-primary-500);
+}
+
+.complete-form {
+    display: none;
+    width: clamp(20ch, 95%, 23.8125rem);
+    text-align: center;
+    margin: 0 auto;
+}
+
+.complete-form .fs-heading-ty {
+    margin: 2.1875rem auto 1rem;
+}
+
+.complete-form img {
+    margin: 0 auto;
+}
+
+.complete-form .completed-btn {
+    margin-top: 3rem;
+}
+
+@media (min-width: 50em) {
+
+    .fs-heading-l {
+        font-size: var(--fs-heading-l);
+        letter-spacing: 3.42px;
+    }
+
+    main {
+        min-height: 100vh;
+    }
+
+    .bg--img::before {
+        content: '';
+        inset: 0;
+        position: absolute;
+        background-image: url('../images/bg-main-desktop.png');
+        background-repeat: no-repeat;
+        background-size: 30.1875rem 100vh;
+        z-index: -1;
+    }
+
+    .container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 100vh;
+        padding: 0 2rem;
+
+    }
+
+    .card--wrapper {
+        width: clamp(20ch, 95%, 33.8125rem);
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        gap: 2.3125rem 0;
+    }
+
+    .card {
+        max-width: 27.9375rem;
+        height: 15.3125rem;
+    }
+
+    .card__logo {
+        max-width: 5.25rem;
+        inset: 1.75rem 20.6875rem 10rem 2rem;
+    }
+
+
+    .card__content {
+        grid-template-columns: minmax(min-content, 9.375rem) minmax(min-content, 11.4375rem) minmax(min-content, 3.125rem);
+        grid-template-rows: 2.25 1.125;
+        inset: 8.6875rem 2rem 1.625rem;
+    }
+
+    .card--back {
+        align-self: end;
+    }
+
+    .security-code {
+        inset: 6.9375rem 3.5625rem 7.25rem 22.375rem;
+    }
+
+    .form--wrapper {
+        margin: 0;
+    }
+
+    form>*+* {
+        margin-top: 1.625rem;
+    }
+
+    .attribution {
+        color: var(--white);
+        inset: auto auto 0 1rem;
+        font-size: 0.6875rem;
+        position: absolute;
+        text-align: center;
+    }
+
+    form .btn {
+        cursor: pointer;
+
+    }
+
+    @media (min-width: 52.5em) {
+        .form--wrapper input[name="exp"] {
+            max-width: 5rem;
+        }
+    }
+
+   
+}
